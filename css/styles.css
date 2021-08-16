@@ -107,12 +107,31 @@ ul {
     list-style: none;
 }
 
-.button-primary {
+a {
+    text-decoration: none;
+}
+
+.button-primary, 
+.button-disabled {
     background-color: #7477bf;
+    color: #ffffff;
+    border-radius: 5px;
+    border-color: #cccccc;
+    padding: .5em;
+    margin: .5em;
+    text-transform: uppercase;
+    font-weight: 200;
+    flex-grow: 1;
+}
+
+.button-disabled {
+    background-color: #999999;
 }
 
 .profile-image {
     border-radius: 50%;
+    height: 75px;
+    width: 75px;
 }
 
 .social-container {
@@ -128,12 +147,85 @@ ul {
 
 .social-image {
     display: flex;
-    width: 70px;
+    width: 75px;
     padding: 20px;
     background: #7477bf;
     border-radius: 50%;
     fill: #ffffff;
+}
 
+.social-text {
+    display: flex;
+    flex-direction: column;
+    padding: .5em;
+}
+
+.social-text p:nth-child(2) {
+    color: #777777;
+    font-size: 36px;
+}
+
+.members-container, 
+.activity-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: .5em 2px;
+}
+
+.arrow {
+    display: none;
+}
+
+.hr-second {
+    max-width: 90%;
+    margin: auto;
+}
+
+.widget-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-field, 
+.form-area {
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    border-color: #cccccc;
+    padding: .5em;
+    margin: .5em;
+    color: #bcbcbc;
+}
+
+.form-area {
+    height: 150px;
+}
+
+.settings {
+    display: flex;
+    flex-direction: column;
+}
+
+.settings-button {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+select {
+    appearance: none;
+    background-image:
+        linear-gradient(45deg, transparent 50%, #7477bf 50%),
+        linear-gradient(135deg, #7477bf 50%, transparent 50%);
+    background-position:
+        calc(100% - 20px) calc(1em + 2px),
+        calc(100% - 15px) calc(1em + 2px),
+        calc(100% - 2.5em) 0.5em;
+    background-size:
+        5px 5px,
+        5px 5px,
+        1px 1.5em;
+    background-repeat: no-repeat;
 }
 
 @media (min-width: 768px) {
