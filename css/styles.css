@@ -52,6 +52,56 @@ header .profile-image {
     fill: white;
 }
 
+.dot {
+    background-color: lawngreen;
+    padding: 2px 2px;
+    border-radius: 50%;
+    position: absolute;
+    top: 10px;
+    right: 1px;
+}
+
+.bell-icon:hover {
+    transform: rotate(45deg);
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #4d4c72;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    padding: .5em;
+  }
+
+  .show {display:block;}
+
+.alert-banner {
+    grid-area: header;
+    background-color: #7477bf;
+    color: white;
+    display: flex;
+    max-width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: lighter;
+    border-radius: 5px;
+    border-color: #cccccc;
+    padding: 1em;
+    margin: .5em;
+}
+
+.alert-banner-close:hover {
+    cursor: pointer
+}
+
 nav {
     grid-area: navigation;
     background-color: #4d4c72;
@@ -276,7 +326,7 @@ select {
         display: none;
     }
 
-    .traffic, .social, hr, .members, .message, .activity, .settings, .main-header {
+    .traffic, .social, hr, .members, .message, .activity, .settings, .main-header, .alert {
         grid-column: 1 / span 2;
     }
 
