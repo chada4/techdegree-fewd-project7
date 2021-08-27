@@ -41,10 +41,43 @@ window.onclick = function(event) {
 
 // Line graph
 
-let trafficData = {
+let trafficDataWk = {
   labels: ["16-22", "23-29", "30-5", "6-12", "13-19", "20-26", "27-3", "4-10", "11-17", "18-24", "25-31"],
   datasets: [{
     data: [750, 1250, 1000, 2000, 1500, 1750, 1250, 1850, 2250, 1500, 2500],
+    backgroundColor: 'rgba(116, 119, 191, .3)',
+    borderWidth: 1,
+    fill: true,
+    lineTension: .5
+  }]
+};
+
+let trafficDataHr = {
+  labels: ["4a-6a", "6a-8a", "8a-10a", "10a-12p", "12p-2p", "2p-4p", "4p-6p", "6p-8p", "8p-10p", "10p-12a", "12a-2a", "2a-4a"],
+  datasets: [{
+    data: [7, 10, 13, 17, 23, 21, 18, 15, 9, 8, 6, 5],
+    backgroundColor: 'rgba(116, 119, 191, .3)',
+    borderWidth: 1,
+    fill: true,
+    lineTension: .5
+  }]
+};
+
+let trafficDataDay = {
+  labels: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+  datasets: [{
+    data: [75, 115, 175, 125, 225, 200, 100],
+    backgroundColor: 'rgba(116, 119, 191, .3)',
+    borderWidth: 1,
+    fill: true,
+    lineTension: .5
+  }]
+};
+
+let trafficDataMn = {
+  labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+  datasets: [{
+    data: [6200, 5000, 4000, 8000, 6000, 7000, 5000, 7400, 9000, 6000, 10000, 8500],
     backgroundColor: 'rgba(116, 119, 191, .3)',
     borderWidth: 1,
     fill: true,
@@ -71,7 +104,7 @@ let trafficOptions = {
 
 let trafficChart = new Chart(trafficCanvas, {
   type: 'line',
-  data: trafficData,
+  data: trafficDataMn,
   options: trafficOptions
 });
 
@@ -123,6 +156,7 @@ const mobileData = {
 };
 
 const mobileOptions = {
+  aspectRatio: 2,
   plugins: {
     legend: {
       position: 'right',
