@@ -42,6 +42,17 @@ window.onclick = function(event) {
 
 // Line graph
 
+let trafficDataDefault = {
+  labels: ["16-22", "23-29", "30-5", "6-12", "13-19", "20-26", "27-3", "4-10", "11-17", "18-24", "25-31"],
+  datasets: [{
+    data: [750, 1250, 1000, 2000, 1500, 1750, 1250, 1850, 2250, 1500, 2500],
+    backgroundColor: 'rgba(116, 119, 191, .3)',
+    borderWidth: 1,
+    fill: true,
+    lineTension: .5
+  }]
+};
+
 let trafficDataWk = {
   labels: ["16-22", "23-29", "30-5", "6-12", "13-19", "20-26", "27-3", "4-10", "11-17", "18-24", "25-31"],
   datasets: [{
@@ -105,7 +116,7 @@ let trafficOptions = {
 
 let trafficChart = new Chart(trafficCanvas, {
   type: 'line',
-  data: trafficDataWk,
+  data: trafficDataDefault,
   options: trafficOptions
 });
 
@@ -121,20 +132,24 @@ const updateChart = (chart, newData) => {
 
 traffic.addEventListener('click', (e) => {
   if (e.target.classList.contains('hourly')) {
+    document.getElementsByClassName('active')[0].classList.remove('active');
     e.target.classList.add('active');
-    update(trafficDataHr);
+    updateChart(trafficChart, trafficDataHr);
   }
   if (e.target.classList.contains('daily')) {
+    document.getElementsByClassName('active')[0].classList.remove('active');
     e.target.classList.add('active');
-    update(trafficDataDay);
+    updateChart(trafficChart, trafficDataDay);
   }
   if (e.target.classList.contains('weekly')) {
+    document.getElementsByClassName('active')[0].classList.remove('active');
     e.target.classList.add('active');
-    update(trafficDataWk);
+    updateChart(trafficChart, trafficDataWk);
   }
   if (e.target.classList.contains('monthly')) {
+    document.getElementsByClassName('active')[0].classList.remove('active');
     e.target.classList.add('active');
-    update(trafficDataMn);
+    updateChart(trafficChart, trafficDataMn);
   }
 });
 
