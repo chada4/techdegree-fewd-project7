@@ -319,6 +319,19 @@ select {
     box-shadow: inset 0 0 0 30px #7477bf;
 }
 
+/* --------------------------------------------------------------
+Autocomplete list
+-----------------------------------------------------------------
+*/
+
+#autocomplete-items {
+    background-color: #d5d6ec;
+}
+
+#userFieldautocomplete-list {
+    background-color: #d5d6ec;
+}
+
 @media (min-width: 768px) {
 
     .grid-container {
@@ -430,3 +443,4 @@ select {
     }
 
 }
+
