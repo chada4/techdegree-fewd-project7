@@ -5,7 +5,7 @@ const mobileCanvas = document.getElementById("mobile-chart");
 const user = document.getElementById("userField");
 const message = document.getElementById("messageField");
 const send = document.getElementById("send");
-const traffic = document.querySelectorAll("traffic-nav");
+const traffic = document.querySelector(".traffic-nav");
 
 alertBanner.innerHTML = 
 `
