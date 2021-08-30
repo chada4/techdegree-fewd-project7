@@ -5,6 +5,7 @@ const mobileCanvas = document.getElementById("mobile-chart");
 const user = document.getElementById("userField");
 const message = document.getElementById("messageField");
 const send = document.getElementById("send");
+const traffic = document.querySelectorAll("traffic-nav");
 
 alertBanner.innerHTML = 
 `
@@ -23,9 +24,9 @@ alertBanner.addEventListener('click', e => {
 
 function showNotifications() {
     document.getElementById("notifications").classList.toggle("show");
-  }
+}
 
-  // Close the dropdown menu if the user clicks outside of it
+// Close the dropdown menu if the user clicks outside of it
 window.onclick = function(event) {
     if (!event.target.matches('.bell-icon')) {
       var dropdowns = document.getElementsByClassName("dropdown-content");
@@ -37,7 +38,7 @@ window.onclick = function(event) {
         }
       }
     }
-  }
+}
 
 // Line graph
 
@@ -104,8 +105,37 @@ let trafficOptions = {
 
 let trafficChart = new Chart(trafficCanvas, {
   type: 'line',
-  data: trafficDataMn,
+  data: trafficDataWk,
   options: trafficOptions
+});
+
+// Chart Update Function from Project Resources
+
+const updateChart = (chart, newData) => {
+  chart.data.labels = newData.labels;
+  chart.data.datasets[0].data = newData.datasets[0].data;
+  chart.update();
+};
+
+// Update traffic chart from Slack
+
+traffic.addEventListener('click', (e) => {
+  if (e.target.classList.contains('hourly')) {
+    e.target.classList.add('active');
+    update(trafficDataHr);
+  }
+  if (e.target.classList.contains('daily')) {
+    e.target.classList.add('active');
+    update(trafficDataDay);
+  }
+  if (e.target.classList.contains('weekly')) {
+    e.target.classList.add('active');
+    update(trafficDataWk);
+  }
+  if (e.target.classList.contains('monthly')) {
+    e.target.classList.add('active');
+    update(trafficDataMn);
+  }
 });
 
 // Bar graph
