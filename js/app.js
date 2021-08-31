@@ -340,7 +340,9 @@ document.getElementById("setting-profile").checked = profileChecked;
 let timezoneSelected = localStorage.getItem("timezone");
 document.getElementById("timezone").value = timezoneSelected;
 
-
+if (localStorage.getItem("timezone") === 0) {
+  localStorage.setItem("timezone", "Select Timezone");
+}
 
 
 
