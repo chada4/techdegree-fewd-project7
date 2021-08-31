@@ -328,12 +328,13 @@ function saveSettings() {
 
 function clearSettings() {
   localStorage.clear();
+  localStorage.setItem("timezone", "Select Timezone");
 }
 
-let emailChecked = localStorage.getItem("setting-email");
+let emailChecked = JSON.parse(localStorage.getItem("setting-email"));
 document.getElementById("setting-email").checked = emailChecked;
 
-let profileChecked = localStorage.getItem("setting-profile");
+let profileChecked = JSON.parse(localStorage.getItem("setting-profile"));
 document.getElementById("setting-profile").checked = profileChecked;
 
 // can't quite figure out what sort of if statement I need to show default "Select a Timezone" if localStorage is empty
