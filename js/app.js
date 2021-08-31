@@ -236,7 +236,7 @@ send.addEventListener('click', () => {
   }
 });
 
-// Autocomplete user search
+// Autocomplete user search (from w3schools.com)
 
 const userSearch = document.getElementById('userField');
 const userNames = ["Victoria Chambers", "Dale Byrd", "Dawn Wood", "Dan Oliver"];
@@ -317,31 +317,29 @@ const timezone = document.getElementById("timezone");
 const save = document.getElementById("save");
 const cancel = document.getElementById("cancel");
 
-localStorage.getItem('emailSetting');
-localStorage.getItem('profileSetting');
-localStorage.getItem('timezone');
-
-save.onclick = saveSettings
-cancel.onclick = clearSettings
+save.onclick = saveSettings;
+cancel.onclick = clearSettings;
 
 function saveSettings() {
-  localStorage.setItem(emailSetting, emailSetting.value);
-  localStorage.setItem(profileSetting, profileSetting.value);
-  localStorage.setItem(timezone, timezone.value);
+  localStorage.setItem("setting-email", emailSetting.checked);
+  localStorage.setItem("setting-profile", profileSetting.checked);
+  localStorage.setItem("timezone", timezone.value);
 }
 
 function clearSettings() {
   localStorage.clear();
 }
 
+let emailChecked = localStorage.getItem("setting-email");
+document.getElementById("setting-email").checked = emailChecked;
 
+let profileChecked = localStorage.getItem("setting-profile");
+document.getElementById("setting-profile").checked = profileChecked;
 
+// can't quite figure out what sort of if statement I need to show default "Select a Timezone" if localStorage is empty
 
-
-
-
-
-
+let timezoneSelected = localStorage.getItem("timezone");
+document.getElementById("timezone").value = timezoneSelected;
 
 
 

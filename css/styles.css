@@ -324,12 +324,15 @@ Autocomplete list
 -----------------------------------------------------------------
 */
 
-#autocomplete-items {
-    background-color: #d5d6ec;
-}
-
 #userFieldautocomplete-list {
     background-color: #d5d6ec;
+    position: absolute;
+    top: 50px;
+    left: 10px;
+}
+
+.autocomplete {
+    position: relative;
 }
 
 @media (min-width: 768px) {
