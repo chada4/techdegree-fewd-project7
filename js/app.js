@@ -337,8 +337,6 @@ document.getElementById("setting-email").checked = emailChecked;
 let profileChecked = JSON.parse(localStorage.getItem("setting-profile"));
 document.getElementById("setting-profile").checked = profileChecked;
 
-// can't quite figure out what sort of if statement I need to show default "Select a Timezone" if localStorage is empty
-
 let timezoneSelected = localStorage.getItem("timezone");
 document.getElementById("timezone").value = timezoneSelected;
 
