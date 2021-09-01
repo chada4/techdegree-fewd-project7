@@ -318,7 +318,6 @@ const save = document.getElementById("save");
 const cancel = document.getElementById("cancel");
 
 save.onclick = saveSettings;
-cancel.onclick = clearSettings;
 
 function saveSettings() {
   localStorage.setItem("setting-email", emailSetting.checked);
@@ -326,10 +325,16 @@ function saveSettings() {
   localStorage.setItem("timezone", timezone.value);
 }
 
-function clearSettings() {
+document.querySelector("#cancel").addEventListener("click", () => {
+  const switches = document.querySelectorAll(".switch input");
+  for (let s of switches) {
+    s.checked = false;
+  }
   localStorage.clear();
+  timezone.value = "Select Timezone";
   localStorage.setItem("timezone", "Select Timezone");
-}
+});
+
 
 let emailChecked = JSON.parse(localStorage.getItem("setting-email"));
 document.getElementById("setting-email").checked = emailChecked;
@@ -342,7 +347,10 @@ document.getElementById("timezone").value = timezoneSelected;
 
 if (localStorage.getItem("timezone") === 0) {
   localStorage.setItem("timezone", "Select Timezone");
+  timezone.value = "Select Timezone";
 }
 
-
+if (timezone.value == 0) {
+  timezone.value = "Select Timezone";
+}
 
